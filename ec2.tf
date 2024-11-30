@@ -3,11 +3,11 @@
 
 
 provider "aws" {
-   region = "eu-north-1"  
+  region = "eu-north-1"
 }
 
 resource "aws_instance" "ec2" {
-  ami = "ami-08ebi50f611ca277f"
+  ami           = "ami-08ebi50f611ca277f"
   instance_type = "t2.micro"
 
   tags = {
