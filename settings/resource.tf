@@ -22,11 +22,11 @@ sudo curl http://169.254.169.254/latest/dynamic/instance-identity/document -o /v
 # Ami and other resource using variables
 
 resource "aws_instance" "test_ec2" {
-  ami           = var.my_ami
-  instance_type = var.my_instance_type
+  ami           = data.aws_ami.ubuntu_ami.id
+  instance_type = var.my_instance_type["prod"]
   user_data = file("${path.module}/httpd.sh")
   tags = {
-    Name = var.my_tag_name
+    Name = var.my_instance_name
   }
 }
 
